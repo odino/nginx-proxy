@@ -16,6 +16,10 @@ RUN sed -i 's/# server_names_hash_bucket/server_names_hash_bucket/g' /etc/nginx/
 RUN wget -P /usr/local/bin https://godist.herokuapp.com/projects/ddollar/forego/releases/current/linux-amd64/forego
 RUN chmod u+x /usr/local/bin/forego
 
+# Generate dummy SSL certificates
+RUN mkdir /ssl
+RUN openssl req -new -x509 -days 365 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.org" -nodes -out /ssl/nginx.pem -keyout /ssl/nginx.key
+
 RUN mkdir /app
 WORKDIR /app
 ADD . /app
@@ -24,6 +28,7 @@ RUN wget https://github.com/jwilder/docker-gen/releases/download/0.3.2/docker-ge
 RUN tar xvzf docker-gen-linux-amd64-0.3.2.tar.gz
 
 EXPOSE 80
+EXPOSE 443
 ENV DOCKER_HOST unix:///tmp/docker.sock
 
 CMD ["forego", "start", "-r"]

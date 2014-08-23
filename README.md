@@ -1,3 +1,8 @@
+> This is a slightly modified version of the original
+> jwilder/nginx-proxy container, thought for dev environments.
+>
+> You will be able to access containers through both HTTP and HTTPS.
+
 nginx-proxy sets up a container running nginx and [docker-gen][1].  docker-gen generate reverse proxy configs for nginx and reloads nginx when containers they are started and stopped.
 
 See [Automated Nginx Reverse Proxy for Docker][2] for why you might want to use this.

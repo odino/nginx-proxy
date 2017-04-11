@@ -24,8 +24,8 @@ RUN mkdir /app
 WORKDIR /app
 ADD . /app
 
-RUN wget https://github.com/jwilder/docker-gen/releases/download/0.3.2/docker-gen-linux-amd64-0.3.2.tar.gz
-RUN tar xvzf docker-gen-linux-amd64-0.3.2.tar.gz
+RUN wget https://github.com/jwilder/docker-gen/releases/download/0.7.3/docker-gen-linux-amd64-0.7.3.tar.gz
+RUN tar xvzf docker-gen-linux-amd64-0.7.3.tar.gz
 
 EXPOSE 80
 EXPOSE 443
